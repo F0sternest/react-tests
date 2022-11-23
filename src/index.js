@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { Button } from "./Button";
-import Saludar from "./Saludos";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+const Counter = () => {
+  const [mensaje, setMensaje] = useState('')
+  return (
+    <div>
+      <input onChange={event => setMensaje(event.target.value)}/>
+      <button onClick={() => console.log(`El mensaje es: ${mensaje}`)}>
+        Save
+      </button>
+    </div>
+  );
+}
+
 root.render(
   <>
-    <Saludar name="Kevin" age={21} />
-    <Button text="Presioname" />
-    <Button text="Y no hay error" />
-    <Button text="Tu nombre es" name = 'Kevin' />
+    <Counter />
   </>
 );
